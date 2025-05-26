@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Bro Store</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><a href="../index.html">Bro Store</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="products.html">Produtos</a></li>
+                    <li><a href="profile.html">Minha Conta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="cart-container">
+            <h2>Meu Carrinho</h2>
+
+            <!-- Lista de Produtos -->
+            <div class="cart-items" id="cartItems">
+                <!-- Itens do carrinho serão inseridos aqui via JavaScript -->
+            </div>
+
+            <!-- Resumo do Carrinho -->
+            <div class="cart-summary">
+                <div class="summary-card">
+                    <h3>Resumo do Pedido</h3>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Frete</span>
+                        <span id="shipping">Calculado no checkout</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="total">R$ 0,00</span>
+                    </div>
+                    <button class="btn btn-primary" id="checkoutButton">
+                        Finalizar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrinho Vazio -->
+        <div class="empty-cart" id="emptyCart" style="display: none;">
+            <img src="https://via.placeholder.com/200" alt="Carrinho Vazio">
+            <h3>Seu carrinho está vazio</h3>
+            <p>Que tal começar a comprar?</p>
+            <a href="products.html" class="btn btn-primary">Ver Produtos</a>
+        </div>
+    </main>
+
+    <script src="../js/cart.js"></script>
+</body>
+</html> 

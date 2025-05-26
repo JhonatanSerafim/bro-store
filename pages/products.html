@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Bro Store</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/products.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><a href="../index.html">Bro Store</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="cart.html" id="cartButton">Carrinho <span id="cartCount">0</span></a></li>
+                    <li><a href="profile.html">Minha Conta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="products-container">
+            <!-- Filtros e Busca -->
+            <aside class="filters-sidebar">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar produtos...">
+                </div>
+
+                <div class="filter-section">
+                    <h3>Preço</h3>
+                    <div class="price-range">
+                        <input type="number" id="minPrice" placeholder="Mín">
+                        <span>até</span>
+                        <input type="number" id="maxPrice" placeholder="Máx">
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Ordenar por</h3>
+                    <select id="sortSelect">
+                        <option value="name_asc">Nome (A-Z)</option>
+                        <option value="name_desc">Nome (Z-A)</option>
+                        <option value="price_asc">Menor Preço</option>
+                        <option value="price_desc">Maior Preço</option>
+                    </select>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Disponibilidade</h3>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="inStockOnly">
+                        Apenas produtos em estoque
+                    </label>
+                </div>
+
+                <button class="btn btn-primary" id="applyFilters">
+                    Aplicar Filtros
+                </button>
+            </aside>
+
+            <!-- Lista de Produtos -->
+            <section class="products-grid" id="productsGrid">
+                <!-- Produtos serão inseridos aqui via JavaScript -->
+            </section>
+        </div>
+
+        <!-- Paginação -->
+        <div class="pagination" id="pagination">
+            <!-- Paginação será inserida aqui via JavaScript -->
+        </div>
+    </main>
+
+    <script src="../js/products.js"></script>
+</body>
+</html> 

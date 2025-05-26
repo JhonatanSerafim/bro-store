@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Bro Store</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><a href="../index.html">Bro Store</a></h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="checkout-container">
+            <!-- Progresso do Checkout -->
+            <div class="checkout-progress">
+                <div class="progress-step active" data-step="address">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Endereço</span>
+                </div>
+                <div class="progress-step" data-step="review">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Revisão</span>
+                </div>
+                <div class="progress-step" data-step="payment">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Pagamento</span>
+                </div>
+            </div>
+
+            <!-- Etapas do Checkout -->
+            <div class="checkout-steps">
+                <!-- Etapa 1: Endereço -->
+                <div class="checkout-step active" id="addressStep">
+                    <h2>Endereço de Entrega</h2>
+                    <div class="addresses-list" id="addressesList">
+                        <!-- Endereços serão inseridos aqui via JavaScript -->
+                    </div>
+                    <button class="btn btn-secondary" id="addAddressBtn">
+                        Adicionar Novo Endereço
+                    </button>
+                </div>
+
+                <!-- Etapa 2: Revisão -->
+                <div class="checkout-step" id="reviewStep">
+                    <h2>Revisar Pedido</h2>
+                    <div class="order-items" id="orderItems">
+                        <!-- Itens do pedido serão inseridos aqui via JavaScript -->
+                    </div>
+                    <div class="delivery-info" id="deliveryInfo">
+                        <!-- Informações de entrega serão inseridas aqui -->
+                    </div>
+                </div>
+
+                <!-- Etapa 3: Pagamento -->
+                <div class="checkout-step" id="paymentStep">
+                    <h2>Pagamento</h2>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <input type="radio" name="paymentMethod" id="creditCard" value="credit_card">
+                            <label for="creditCard">Cartão de Crédito</label>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" name="paymentMethod" id="pix" value="pix">
+                            <label for="pix">PIX</label>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" name="paymentMethod" id="boleto" value="boleto">
+                            <label for="boleto">Boleto</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumo do Pedido -->
+            <div class="order-summary">
+                <div class="summary-card">
+                    <h3>Resumo do Pedido</h3>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Frete</span>
+                        <span id="shipping">R$ 0,00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="total">R$ 0,00</span>
+                    </div>
+                    <button class="btn btn-primary" id="nextStepBtn">
+                        Continuar
+                    </button>
+                    <button class="btn btn-secondary" id="previousStepBtn" style="display: none;">
+                        Voltar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Novo Endereço -->
+        <div class="modal" id="addressModal">
+            <div class="modal-content">
+                <h3>Adicionar Endereço</h3>
+                <form id="addressForm">
+                    <div class="form-group">
+                        <label for="street">Rua</label>
+                        <input type="text" id="street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Cidade</label>
+                        <input type="text" id="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">Estado</label>
+                        <input type="text" id="state" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zipCode">CEP</label>
+                        <input type="text" id="zipCode" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelAddress">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Salvar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/checkout.js"></script>
+</body>
+</html> 

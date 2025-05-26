@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bro Store - Sua Loja de Confiança</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><a href="index.html">Bro Store</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="pages/products.html"><i class="fas fa-store"></i> Produtos</a></li>
+                    <li><a href="pages/cart.html" id="cartButton"><i class="fas fa-shopping-cart"></i> Carrinho <span id="cartCount">0</span></a></li>
+                    <li><a href="pages/profile.html"><i class="fas fa-user"></i> Minha Conta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Bem-vindo à Bro Store</h2>
+                    <p>Sua loja online com os melhores produtos e preços!</p>
+                    <a href="pages/products.html" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Ver Produtos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios -->
+        <section class="benefits">
+            <div class="container">
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Frete Grátis</h3>
+                        <p>Para compras acima de R$ 200</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Entrega Rápida</h3>
+                        <p>Receba em até 7 dias úteis</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Pagamento Seguro</h3>
+                        <p>Cartão, PIX ou Boleto</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3>Troca Garantida</h3>
+                        <p>Até 30 dias após a compra</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produtos em Destaque -->
+        <section class="featured-products">
+            <div class="container">
+                <h2><i class="fas fa-star"></i> Produtos em Destaque</h2>
+                <div class="products-grid" id="featuredProducts">
+                    <!-- Produtos serão inseridos via JavaScript -->
+                </div>
+                <div class="section-footer">
+                    <a href="pages/products.html" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Ver Todos os Produtos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorias -->
+        <section class="categories">
+            <div class="container">
+                <h2><i class="fas fa-th-large"></i> Nossas Categorias</h2>
+                <div class="categories-grid">
+                    <a href="pages/products.html?category=eletronicos" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Eletrônicos</h3>
+                        <p>Notebooks, Smartphones e mais</p>
+                    </a>
+                    <a href="pages/products.html?category=moda" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3>Moda</h3>
+                        <p>Roupas, Calçados e Acessórios</p>
+                    </a>
+                    <a href="pages/products.html?category=casa" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Casa</h3>
+                        <p>Decoração e Utilidades</p>
+                    </a>
+                    <a href="pages/products.html?category=esportes" class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3>Esportes</h3>
+                        <p>Equipamentos e Acessórios</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2><i class="fas fa-envelope"></i> Fique por dentro das novidades!</h2>
+                    <p>Cadastre-se para receber ofertas exclusivas e promoções especiais.</p>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor e-mail" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3><i class="fas fa-building"></i> Institucional</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                        <li><a href="#"><i class="fas fa-briefcase"></i> Trabalhe Conosco</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Termos de Uso</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-headset"></i> Ajuda</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Central de Atendimento</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-bag"></i> Como Comprar</a></li>
+                        <li><a href="#"><i class="fas fa-truck"></i> Prazos de Entrega</a></li>
+                        <li><a href="#"><i class="fas fa-exchange-alt"></i> Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-credit-card"></i> Pagamento</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-pix"></i>
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-hashtag"></i> Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bro Store. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/landing.js"></script>
+</body>
+</html> 

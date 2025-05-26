@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Bro Store</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><a href="../index.html">Bro Store</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="cart.html" id="cartButton">Carrinho <span id="cartCount">0</span></a></li>
+                    <li><a href="#" id="logoutButton">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="profile-container">
+            <!-- Informações Pessoais -->
+            <section class="profile-section">
+                <h2>Informações Pessoais</h2>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Atualizar Informações</button>
+                </form>
+            </section>
+
+            <!-- Endereços -->
+            <section class="profile-section">
+                <div class="section-header">
+                    <h2>Meus Endereços</h2>
+                    <button class="btn btn-primary" id="addAddressBtn">Adicionar Novo Endereço</button>
+                </div>
+                
+                <!-- Lista de Endereços -->
+                <div id="addressesList">
+                    <!-- Endereços serão inseridos aqui via JavaScript -->
+                </div>
+
+                <!-- Modal de Endereço -->
+                <div class="modal" id="addressModal">
+                    <div class="modal-content">
+                        <h3>Adicionar Endereço</h3>
+                        <form id="addressForm">
+                            <div class="form-group">
+                                <label for="street">Rua</label>
+                                <input type="text" id="street" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Cidade</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">Estado</label>
+                                <input type="text" id="state" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode">CEP</label>
+                                <input type="text" id="zipCode" required>
+                            </div>
+                            <div class="modal-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelAddress">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/profile.js"></script>
+</body>
+</html> 
