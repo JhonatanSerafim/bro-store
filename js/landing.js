@@ -3,11 +3,14 @@ const featuredProducts = document.getElementById('featuredProducts');
 const cartCount = document.getElementById('cartCount');
 const newsletterForm = document.getElementById('newsletterForm');
 
-// Carregar produtos em destaque
+// Carregar produtos em destaque (apenas 4 produtos)
 const loadFeaturedProducts = async () => {
     try {
-        const response = await fetch('/api/products/featured');
-        const products = await response.json();
+        const response = await mockFetch('http://localhost:3000/products');
+        const allProducts = await response.json();
+        
+        // Pegar apenas os primeiros 4 produtos
+        const products = allProducts.slice(0, 4);
 
         featuredProducts.innerHTML = products.map(product => `
             <div class="product-card">
@@ -50,6 +53,14 @@ const loadFeaturedProducts = async () => {
                 description: 'Descrição detalhada do produto 3',
                 price: 199.99,
                 stock: 0,
+                image: 'https://via.placeholder.com/200'
+            },
+            {
+                id: 4,
+                name: 'Produto 4',
+                description: 'Descrição detalhada do produto 4',
+                price: 299.99,
+                stock: 8,
                 image: 'https://via.placeholder.com/200'
             }
         ];
@@ -96,39 +107,31 @@ const getStockStatusText = (stock) => {
     return 'Em estoque';
 };
 
-// Adicionar ao carrinho
+// Adicionar ao carrinho (simulação)
 const addToCart = async (productId) => {
     try {
-        const response = await fetch('/api/cart/add', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                product_id: productId,
-                quantity: 1
-            })
-        });
-
-        if (response.ok) {
-            showFeedback('Produto adicionado ao carrinho!');
-            updateCartCount();
-        } else {
-            throw new Error('Erro ao adicionar ao carrinho');
-        }
+        // Simulação de adicionar ao carrinho
+        showFeedback('Produto adicionado ao carrinho!');
+        
+        // Incrementar contador do carrinho
+        const currentCount = parseInt(cartCount.textContent);
+        cartCount.textContent = currentCount + 1;
+        
+        // Salvar no localStorage para persistir
+        localStorage.setItem('cartCount', currentCount + 1);
     } catch (error) {
         showFeedback('Erro ao adicionar produto ao carrinho', 'error');
     }
 };
 
 // Atualizar contador do carrinho
-const updateCartCount = async () => {
+const updateCartCount = () => {
     try {
-        const response = await fetch('/api/cart/count');
-        const data = await response.json();
-        cartCount.textContent = data.count;
+        const savedCount = localStorage.getItem('cartCount') || '0';
+        cartCount.textContent = savedCount;
     } catch (error) {
         console.error('Erro ao atualizar contador do carrinho:', error);
+        cartCount.textContent = '0';
     }
 };
 
@@ -139,20 +142,9 @@ newsletterForm.addEventListener('submit', async (e) => {
     const email = newsletterForm.querySelector('input[type="email"]').value;
 
     try {
-        const response = await fetch('/api/newsletter/subscribe', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email })
-        });
-
-        if (response.ok) {
-            showFeedback('E-mail cadastrado com sucesso!');
-            newsletterForm.reset();
-        } else {
-            throw new Error('Erro ao cadastrar e-mail');
-        }
+        // Simulação de cadastro na newsletter
+        showFeedback('E-mail cadastrado com sucesso!');
+        newsletterForm.reset();
     } catch (error) {
         showFeedback('Erro ao cadastrar e-mail', 'error');
     }
@@ -163,8 +155,16 @@ const showFeedback = (message, type = 'success') => {
     const feedbackDiv = document.createElement('div');
     feedbackDiv.className = `message message-${type}`;
     feedbackDiv.textContent = message;
+    feedbackDiv.style.cssText = `
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 4px;
+        font-weight: bold;
+        text-align: center;
+        ${type === 'success' ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'}
+    `;
     
-    document.querySelector('.featured-products').insertBefore(
+    document.querySelector('.featured-products .container').insertBefore(
         feedbackDiv,
         document.querySelector('.products-grid')
     );
@@ -175,5 +175,7 @@ const showFeedback = (message, type = 'success') => {
 };
 
 // Inicialização
-loadFeaturedProducts();
-updateCartCount(); 
+document.addEventListener('DOMContentLoaded', () => {
+    loadFeaturedProducts();
+    updateCartCount();
+}); 
